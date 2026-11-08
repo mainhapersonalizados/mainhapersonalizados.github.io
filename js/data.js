@@ -36,11 +36,11 @@ const CATEGORIES = [
     img: "img/caixa-piramide.jpg",
     products: [
       { ...caixinha("cx-piramide", "Caixa pirâmide", 3.3, 5.8), img: "img/caixa-piramide.jpg" },
-      caixinha("cx-maletinha", "Caixa maletinha", 3.3, 5.8),
+      { ...caixinha("cx-maletinha", "Caixa maletinha", 3.3, 5.8), img: "img/caixa-maletinha.jpg" },
       { ...caixinha("cx-meia-bala", "Caixa meia bala", 3.3, 5.8), img: "img/caixa-meia-bala.jpg" },
       caixinha("cx-canudo", "Caixa canudo", 3.6, 6.1),
-      caixinha("cx-diamante", "Caixa diamante", 3.6, 6.1),
-      caixinha("cx-milk", "Caixa milk", 4.0, 6.5),
+      { ...caixinha("cx-diamante", "Caixa diamante", 3.6, 6.1), img: "img/caixa-diamante.jpg" },
+      { ...caixinha("cx-milk", "Caixa milk", 4.0, 6.5), img: "img/caixa-milk.jpg" },
     ],
   },
   {
@@ -58,9 +58,9 @@ const CATEGORIES = [
     blurb: "Detalhes que fazem a diferença nas lembrancinhas.",
     img: "img/tags.jpg",
     products: [
-      { id: "adesivo-corte", name: "Adesivos com corte", price: 10,
+      { id: "adesivo-corte", name: "Adesivos com corte", price: 10, img: "img/adesivos-corte.jpg",
         desc: "Papel fotográfico brilhoso e impressão de alta qualidade, com corte no formato da arte." },
-      { id: "adesivo-sem-corte", name: "Adesivos sem corte", price: 7,
+      { id: "adesivo-sem-corte", name: "Adesivos sem corte", price: 7, img: "img/adesivos-sem-corte.jpg",
         desc: "Papel fotográfico brilhoso e impressão de alta qualidade, sem corte." },
       { id: "tag-offset", name: "Tags de agradecimento, papel Offset", price: 7, min: 10, img: "img/tags.jpg",
         desc: "Tamanho aproximado de 5 × 7,5 cm. Pedido mínimo de 10 unidades." },
@@ -71,11 +71,11 @@ const CATEGORIES = [
   {
     id: "centro-mesa", kind: "festa", title: "Centro de mesa",
     blurb: "Plaquinhas e cachepôs para compor a decoração.",
-    img: null,
+    img: "img/plaquinha-mesa.jpg",
     products: [
       { id: "plaquinha", name: "Plaquinha simples", price: 1.6,
         desc: "Personalizada conforme o tema da sua comemoração." },
-      { id: "plaquinha-suporte", name: "Plaquinha com suporte", price: 1.9,
+      { id: "plaquinha-suporte", name: "Plaquinha com suporte", price: 1.9, img: "img/plaquinha-mesa.jpg",
         desc: "Personalizada conforme o tema da sua comemoração." },
       { id: "cachepo", name: "Cachepô", price: 3,
         desc: "Personalizado conforme o tema da sua comemoração." },
@@ -84,20 +84,20 @@ const CATEGORIES = [
   {
     id: "quadros", kind: "festa", title: "Quadro de aniversário",
     blurb: "Decoração personalizada em três tamanhos.",
-    img: null,
+    img: "img/quadro-aniversario.jpg",
     products: [
-      { id: "quadro-20x30", name: "Quadro 20 × 30 cm", price: 19,
+      { id: "quadro-20x30", img: "img/quadro-aniversario.jpg", name: "Quadro 20 × 30 cm", price: 19,
         desc: "Papel Holler (papelão rígido). Acompanha fita 3M. Arte personalizada no seu tema." },
-      { id: "quadro-60x40", name: "Quadro 60 × 40 cm", price: 38,
+      { id: "quadro-60x40", img: "img/quadro-aniversario.jpg", name: "Quadro 60 × 40 cm", price: 38,
         desc: "Papel Holler (papelão rígido). Acompanha fita 3M. Arte personalizada no seu tema." },
-      { id: "quadro-90x60", name: "Quadro 90 × 60 cm", price: 48,
+      { id: "quadro-90x60", img: "img/quadro-aniversario.jpg", name: "Quadro 90 × 60 cm", price: 48,
         desc: "Papel Holler (papelão rígido). Acompanha fita 3M. Arte personalizada no seu tema." },
     ],
   },
   {
     id: "fotos", kind: "grafico", title: "Impressão de fotos",
     blurb: "Fotos tradicionais, pacotes com 10 unidades e polaroids personalizadas.",
-    img: null,
+    img: "img/polaroids.jpg",
     products: [
       // Fotos tradicionais
       { group: "Fotos tradicionais (valor unitário)", id: "foto-10x15", name: "Foto 10 × 15 cm", price: 2.5, desc: "Impressão fotográfica de qualidade, valor por foto." },
@@ -112,11 +112,11 @@ const CATEGORIES = [
       { group: "Pacotes com 10 fotos", id: "pct-15x21", name: "10 fotos 15 × 21", price: 45, unit: "pacote", desc: "Pacote com 10 fotos no tamanho 15 × 21 cm." },
       { group: "Pacotes com 10 fotos", id: "pct-20x30", name: "10 fotos 20 × 30", price: 95, unit: "pacote", desc: "Pacote com 10 fotos no tamanho 20 × 30 cm." },
       // Polaroid
-      { group: "Fotos Polaroid", id: "pol-p", name: "Polaroid P, 5 × 7 cm", price: 0.45, min: 14,
+      { group: "Fotos Polaroid", id: "pol-p", img: "img/polaroids.jpg", name: "Polaroid P, 5 × 7 cm", price: 0.45, min: 14,
         desc: "Mínimo de 14 unidades. Dá para adicionar nome, data ou frase na parte branca." },
-      { group: "Fotos Polaroid", id: "pol-m", name: "Polaroid M, 7 × 9 cm", price: 1.2, min: 6,
+      { group: "Fotos Polaroid", id: "pol-m", img: "img/polaroids-2.jpg", name: "Polaroid M, 7 × 9 cm", price: 1.2, min: 6,
         desc: "Mínimo de 6 unidades. Dá para adicionar nome, data ou frase na parte branca." },
-      { group: "Fotos Polaroid", id: "pol-g", name: "Polaroid G, 9 × 11 cm", price: 10, unit: "pacote com 5", desc: "Pacote com 5 unidades. Dá para adicionar nome, data ou frase na parte branca." },
+      { group: "Fotos Polaroid", id: "pol-g", img: "img/polaroids.jpg", name: "Polaroid G, 9 × 11 cm", price: 10, unit: "pacote com 5", desc: "Pacote com 5 unidades. Dá para adicionar nome, data ou frase na parte branca." },
     ],
   },
 
@@ -175,9 +175,9 @@ const CATEGORIES = [
   {
     id: "cartoezinhos", kind: "grafico", title: "Cartõezinhos personalizados",
     blurb: "Cartõezinhos de agradecimento para encantar seus clientes.",
-    img: null,
+    img: "img/cartoezinhos.jpg",
     products: [
-      { id: "cartoezinhos", name: "Cartõezinhos de agradecimento",
+      { id: "cartoezinhos", name: "Cartõezinhos de agradecimento", img: "img/cartoezinhos.jpg",
         desc: "Cartõezinhos com a sua arte, uma mensagem de agradecimento e os seus contatos, para entregar junto com o pedido." },
     ],
   },
